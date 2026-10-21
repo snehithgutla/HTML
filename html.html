@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title> My webpage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <title> My App </title>
+    </header>
+    <main>
+        <form>
+            <label for="search-input" class="search-form"> Search </label>
+            <input type="search" id="search" placeholder="text">
+            <button type="submit" id="button"> submit </button>
+        </form>
+        <p id="status"> Search for topics to display image cards </p>
+        <div class="categories" aria-label="Quick search categories">
+            <span class="category-label">Popular:</span>
+            <button type="button" class="chip">Nature</button>
+            <button type="button" class="chip">Architecture</button>
+            <button type="button" class="chip">Wildlife</button>
+            <button type="button" class="chip">Minimalism</button>
+        </div>
+        <section id="results"></section>
+    </main>
+    <script src="script.js" defer></script>
+</body>
