@@ -1,4 +1,4 @@
-/* FrameHarbor — original, responsive Part 1 UI. No JavaScript behaviour yet. */
+/* FrameHarbor — responsive image-discovery app. */
 :root {
   --ink: #13353a;
   --ink-light: #476367;
@@ -87,7 +87,7 @@ h1, h2, h3 { letter-spacing: -1.8px; }
 .dark-eyebrow { color: #6c807d; margin-bottom: 12px; }
 .section-header h2 { font-size: clamp(30px, 3vw, 41px); letter-spacing: -1.8px; margin: 0; line-height: 1.25; }
 .results-count { color: #69807e; font-size: 10px; white-space: nowrap; letter-spacing: 1.6px; font-weight: 800; margin: 0 0 5px; }
-/* Image cards from Part 2 will automatically fill as many columns as fit. */
+/* Responsive search result cards. */
 #results { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
 .empty-state { min-height: 365px; padding: 42px 20px 45px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border: 1.5px dashed #cadcd4; border-radius: 22px; background: linear-gradient(145deg, #fffefb, #f1f8f3); }
 .empty-illustration { position: relative; width: 143px; height: 113px; margin-bottom: 20px; }
@@ -141,3 +141,12 @@ h1, h2, h3 { letter-spacing: -1.8px; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
 }
+
+[hidden] { display: none !important; }
+.results-count { white-space: normal; overflow-wrap: anywhere; max-width: 380px; }
+.image-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); }
+.image-card a { display: block; height: 100%; color: inherit; text-decoration: none; }
+.image-card a:hover { background: #eef7f1; }
+.image-card img { display: block; width: 100%; height: 210px; object-fit: cover; background: var(--mint); }
+.image-card h3 { margin: 16px 16px 8px; font-size: 15px; line-height: 1.5; letter-spacing: -.2px; overflow-wrap: anywhere; }
+.image-meta { margin: 0 16px 18px; color: var(--forest-deep); font-size: 11px; }
