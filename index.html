@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FrameHarbor — a calm, creative space to discover images by topic." />
+  <title>FrameHarbor — Find your next inspiration</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell topbar">
+      <a class="brand" href="#top" aria-label="FrameHarbor home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="26" height="26" rx="8" stroke="currentColor" stroke-width="2.6"/>
+            <circle cx="22.5" cy="12" r="3" fill="currentColor"/>
+            <path d="M8.5 25L15.5 16.5L21 22L25 18.5L29 23" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span>FrameHarbor<span class="brand-stop">.</span></span>
+      </a>
+      <p class="topbar-message"><span class="status-dot" aria-hidden="true"></span> A home for visual curiosity</p>
+      <span class="topbar-edition">DISCOVER / 01</span>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> YOUR CREATIVE SEARCH SPACE</p>
+        <h1 id="hero-title">Find the frame<br />that <em>feels right.</em></h1>
+        <p class="hero-description">Every great idea starts somewhere. Explore a world of imagery, one search at a time.</p>
+        <div class="hero-signature" aria-hidden="true">
+          <span class="signature-dash"></span>
+          <span>LOOK CLOSER. DISCOVER MORE.</span>
+        </div>
+        <div class="hero-orbit orbit-one" aria-hidden="true"></div>
+        <div class="hero-orbit orbit-two" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-action">
+        <div class="search-panel">
+          <div class="panel-heading">
+            <span class="panel-number">01 / SEARCH</span>
+            <span class="panel-symbol" aria-hidden="true">✳</span>
+          </div>
+          <h2>What sparks<br />your curiosity?</h2>
+          <p class="panel-description">Choose a subject, a feeling, or a place.</p>
+          <form id="search-form" role="search">
+            <label for="search-input">Search for images</label>
+            <div class="search-control">
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 16L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <input id="search-input" type="search" placeholder="e.g. mountain sunrise" autocomplete="off" />
+              <button id="search-button" type="submit">Search <span aria-hidden="true">↗</span></button>
+            </div>
+          </form>
+          <div class="quick-picks" aria-label="Suggested topics">
+            <span class="chips-label">EXPLORE:</span>
+            <button class="chip" id="suggest-nature" type="button">✳ Nature</button>
+            <button class="chip" id="suggest-architecture" type="button">⌂ Architecture</button>
+            <button class="chip" id="suggest-ocean" type="button">◒ Ocean</button>
+          </div>
+          <p class="panel-footnote">Suggested topics are previews for Part 2.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="discover-section shell" aria-labelledby="discover-title">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow dark-eyebrow">THE DISCOVERY WALL</p>
+          <h2 id="discover-title">A world of possibilities<span class="period">.</span></h2>
+        </div>
+        <p class="results-count" id="result-count">YOUR RESULTS · NOT SEARCHED YET</p>
+      </div>
+
+      <div id="results" class="results-grid" aria-label="Image search results" aria-live="polite"></div>
+
+      <div id="empty-state" class="empty-state" role="status">
+        <div class="empty-illustration" aria-hidden="true">
+          <div class="illustration-card card-back"></div>
+          <div class="illustration-card card-front">
+            <svg viewBox="0 0 130 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="92" cy="27" r="12" fill="#E8B56E"/>
+              <path d="M10 86L44 42L67 68L81 55L120 92" stroke="#0A8279" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <span class="illustration-spark spark-one">✳</span>
+          <span class="illustration-spark spark-two">✦</span>
+        </div>
+        <span class="empty-kicker">YOUR CANVAS IS READY</span>
+        <h3>No frames here. <em>Yet.</em></h3>
+        <p>Search for something above and your discoveries will eventually find a home here.</p>
+        <span class="empty-coming-soon">IMAGE RESULTS COMING IN PART 2 <span aria-hidden="true">→</span></span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-content">
+      <span>FrameHarbor © 2026</span>
+      <span>Collect inspiration, not clutter.</span>
+      <span>BUILT WITH HTML + CSS</span>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
