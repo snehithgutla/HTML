@@ -150,3 +150,14 @@ h1, h2, h3 { letter-spacing: -1.8px; }
 .image-card img { display: block; width: 100%; height: 210px; object-fit: cover; background: var(--mint); }
 .image-card h3 { margin: 16px 16px 8px; font-size: 15px; line-height: 1.5; letter-spacing: -.2px; overflow-wrap: anywhere; }
 .image-meta { margin: 0 16px 18px; color: var(--forest-deep); font-size: 11px; }
+
+/* Visible feedback throughout the request lifecycle. */
+.search-feedback { padding: 30px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); color: var(--ink-light); }
+.search-feedback[data-state="loading"]::before { content: ""; display: inline-block; width: 17px; height: 17px; margin-right: 12px; vertical-align: middle; border: 3px solid var(--mint); border-top-color: var(--forest); border-radius: 50%; animation: spin .8s linear infinite; }
+.search-feedback[data-state="error"] { border-color: #dbb39c; background: #fff4eb; }
+#search-button:disabled { opacity: .65; cursor: wait; transform: none; }
+.image-card { animation: appear .3s ease-out; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 360px) { #results { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .image-card, .search-feedback::before { animation: none !important; } }
