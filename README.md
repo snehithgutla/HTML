@@ -1,3 +1,21 @@
-# FrameHarbor
+# FrameHarbor — Part 2
 
-FrameHarbor is a responsive image-discovery app where people will search for images by topic and explore the results in a flexible card grid. Part 1 delivers the branded search interface only; image fetching and result rendering will be added in Part 2. I chose a warm cream-and-teal palette to make the search experience feel calm and distinct from the PixelPulse reference. I also chose a split hero-and-search-panel layout, plus quick-pick topic chips and a friendly empty state, to help users know where to begin even before their first search.
+A calm image-discovery app built with plain HTML, CSS, and JavaScript. Extends the original cream-and-teal Part 1 design with real Wikimedia Commons image search; no API key or build tools needed.
+
+## Run
+Open index.html in a modern browser with an internet connection.
+
+## Features
+- Submit by clicking Search or pressing Enter, without a page reload.
+- Trim and ignore blank queries; encode multi-word queries in the API URL.
+- Fetch results, check response.ok, parse JSON, and render cards using createElement and appendChild.
+- Replace previous results on each search.
+- Enhancements: working Nature/Architecture/Ocean chips, result counts, image dimensions, and full-image links opening in a new tab.
+- Basic failure feedback and protection against out-of-order search responses.
+
+## Manual checks
+1. Search cats with the Search button: image cards and a count should appear.
+2. Search new york with Enter: results should replace cats without reloading.
+3. Submit whitespace: no API request and no change to existing results.
+4. Click Ocean: input and results should update.
+5. Open a card: full image opens separately. Consult Wikimedia Commons for each image's reuse terms.
