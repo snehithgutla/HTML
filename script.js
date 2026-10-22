@@ -4,6 +4,18 @@ const input = document.getElementById("search-input");
 const results = document.getElementById("results");
 const count = document.getElementById("result-count");
 const emptyState = document.getElementById("empty-state");
+const feedback = document.getElementById("search-feedback");
+const searchButton = document.getElementById("search-button");
+
+function setState(state, message) {
+  results.dataset.state = state;
+  results.setAttribute("aria-busy", String(state === "loading"));
+  feedback.hidden = state === "results" || state === "idle";
+  feedback.dataset.state = state;
+  feedback.textContent = message || "";
+  searchButton.disabled = state === "loading";
+  emptyState.hidden = state !== "idle";
+}
 let latestSearch = 0;
 
 async function fetchImages(query) {
@@ -49,7 +61,8 @@ function render(items, query) {
     card.appendChild(link);
     results.appendChild(card);
   });
-  emptyState.hidden = true;
+  setState(items.length ? "results" : "empty", "No results for “" + query + "”. Try another topic.");
+  document.title = query + " — FrameHarbor";
   count.textContent = "Showing " + items.length + " results for “" + query + "”";
   if (!items.length) count.textContent += " — try another topic.";
 }
@@ -59,7 +72,7 @@ async function search(query) {
   if (!query) return;
   const searchId = ++latestSearch;
   results.innerHTML = "";
-  emptyState.hidden = true;
+  setState("loading", "Searching for “" + query + "”…");
   count.textContent = "Searching for “" + query + "”…";
   try {
     const items = await fetchImages(query);
@@ -68,8 +81,11 @@ async function search(query) {
     render(items, query);
   } catch (error) {
     if (searchId !== latestSearch) return;
-    count.textContent = "Could not load images. Please try searching again.";
+    setState("error", "Something went wrong. Check your connection and try again.");
+    count.textContent = "Search could not be completed.";
     console.error(error);
+  } finally {
+    if (searchId === latestSearch) searchButton.disabled = false;
   }
 }
 
